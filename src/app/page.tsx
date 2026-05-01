@@ -3,12 +3,18 @@
 import React, { useState, useEffect } from 'react';
 import RetroCity from '../components/RetroCity';
 
+interface Building {
+  id: string;
+  type: 'library' | 'gym' | 'bonsai';
+  points: number;
+}
+
 export default function HabitCity() {
   const [habits, setHabits] = useState([
     { id: 'h1', name: 'Deep Coding Session', completed: false },
   ]);
 
-  const [buildings, setBuildings] = useState([
+  const [buildings, setBuildings] = useState<Building[]>([
     { id: 'b1', type: 'library' as const, points: 8 },
   ]);
 
